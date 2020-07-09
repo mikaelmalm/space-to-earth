@@ -1,0 +1,95 @@
+.SpaceSection {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  min-height: 100vh;
+
+  [data-name="neptune"] {
+    top: -20vmin;
+    left: -20vmin;
+
+    @media screen and(min-width: 720px) {
+      left: -5vmin;
+    }
+  }
+
+  [data-name="mars"] {
+    right: -25vmin;
+    bottom: -2vmin;
+    left: auto;
+    transform: rotate(-45deg);
+
+    @media screen and(min-width: 720px) {
+      right: 2vmin;
+      bottom: 2vmin;
+    }
+  }
+
+  [data-name="uranus"] {
+    right: -12vw;
+    top: 30vh;
+    left: auto;
+    // opacity: 0.5;
+
+    @media screen and(min-width: 720px) {
+      top: -10vh;
+      right: -6vw;
+    }
+  }
+
+  [data-name="jupiter"] {
+    left: 12vw;
+    bottom: 52vh;
+
+    transform: rotate(-40deg);
+
+    @media screen and(min-width: 720px) {
+      right: 15vw;
+      bottom: 35vh;
+    }
+  }
+
+  [data-name="mercury"] {
+    left: 10vw;
+    bottom: -2vh;
+
+    svg {
+      transform: rotate(45deg);
+      transform-origin: 50% 50%;
+    }
+
+    @media screen and(min-width: 720px) {
+      left: -5vw;
+      bottom: -15vh;
+    }
+  }
+
+  [data-name="saturn"] {
+    left: 60vw;
+    top: 3vh;
+    transform: rotate(45deg);
+
+    // @media screen and(min-width: 720px) {
+    //   top: 2vh;
+    //   left: 60vw;
+    // }
+  }
+
+  [data-name="sun"] {
+    bottom: 25vh;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    transform: rotate(-45deg);
+
+    @media screen and(min-width: 720px) {
+      bottom: 25vh;
+    }
+  }
+
+  > div,
+  > svg {
+    position: absolute;
+    left: 0;
+  }
+}
