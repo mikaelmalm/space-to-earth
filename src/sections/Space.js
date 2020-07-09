@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import "./Space.scss";
 import { gsap, TimelineMax, Power1, Power3 } from "gsap";
 
@@ -8,6 +8,17 @@ export const SpaceSection = () => {
   const mars = useRef();
   const tl = new TimelineMax();
 
+  const pulsateAura = useCallback((planet) => {
+    gsap.to(`[data-name="${planet}"] .glow`, 5, {
+      scale: 1,
+      opacity: 0.5,
+      repeat: -1,
+      yoyo: true,
+      transformOrigin: "50%",
+      ease: Power1.inOut,
+    });
+  }, []);
+
   useEffect(() => {
     tl.staggerFrom(
       '[data-name="stars"] path',
@@ -16,38 +27,53 @@ export const SpaceSection = () => {
         autoAlpha: 0,
         y: -50,
       },
-      0.1
+      0.05
     )
 
       .from(
         '[data-name="neptune"]',
         1,
         {
-          y: -150,
+          y: -50,
           opacity: 0,
           ease: Power1.easeOut,
+          onComplete: () => pulsateAura("neptune"),
         },
-        "-=0.25"
+        "-=0.5"
       )
       .from(
         '[data-name="uranus"]',
         1,
         {
-          y: -50,
+          y: -80,
           opacity: 0,
           ease: Power1.easeOut,
+          onComplete: () => pulsateAura("uranus"),
         },
-        "-=0.5"
+        "-=1"
       )
       .from(
         '[data-name="saturn"]',
         1,
         {
-          y: 100,
+          y: 50,
           opacity: 0,
           ease: Power1.easeOut,
+          onComplete: () => pulsateAura("saturn"),
         },
-        "-=0.25"
+        "-=1"
+      )
+
+      .from(
+        '[data-name="mars"]',
+        1,
+        {
+          x: 50,
+          opacity: 0,
+          ease: Power1.easeOut,
+          onComplete: () => pulsateAura("mars"),
+        },
+        "-=0.5"
       )
       .from(
         '[data-name="mercury"]',
@@ -56,39 +82,34 @@ export const SpaceSection = () => {
           x: -100,
           opacity: 0,
           ease: Power1.easeOut,
+          onComplete: () => pulsateAura("mercury"),
         },
-        "-=0.25"
-      )
-      .from(
-        '[data-name="mars"]',
-        1,
-        {
-          x: 150,
-          opacity: 0,
-          ease: Power1.easeOut,
-        },
-        "-=0.5"
+        "-=1.2"
       )
       .from(
         '[data-name="jupiter"]',
         1,
         {
-          x: 50,
+          y: -50,
           opacity: 0,
           ease: Power1.easeOut,
+          onComplete: () => pulsateAura("jupiter"),
         },
-        "-=0.25"
+        "-=1"
       )
       .from(
         '[data-name="sun"]',
-        2,
+        1,
         {
-          y: 50,
+          y: 75,
           opacity: 0,
           ease: Power1.easeOut,
         },
         "-=0.5"
       );
+
+    tl.pause();
+    tl.play(0);
   }, [tl]);
 
   return (

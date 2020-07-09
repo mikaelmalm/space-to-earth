@@ -169,7 +169,7 @@ export const PlanetRound = ({ size, name, color, ref }) => {
         height={size}
         viewBox="0 0 300 300"
       >
-        <g>
+        <g className="glow">
           <linearGradient
             id={`gradient-a-${color}`}
             gradientUnits="userSpaceOnUse"
