@@ -1,8 +1,9 @@
 .SpaceSection {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   width: 100vw;
   min-height: 100vh;
+  background: linear-gradient(#000120 45%, #024254);
 
   [data-name="neptune"] {
     top: -20vmin;
@@ -41,11 +42,13 @@
     left: 12vw;
     bottom: 52vh;
 
-    transform: rotate(-40deg);
+    svg {
+      transform: rotate(40deg);
+    }
 
     @media screen and(min-width: 720px) {
-      right: 15vw;
-      bottom: 35vh;
+      left: 15vw;
+      bottom: 10vh;
     }
   }
 
@@ -91,5 +94,10 @@
   > svg {
     position: absolute;
     left: 0;
+
+    .glow {
+      opacity: 0;
+      transform: matrix(0.88, 0, 0, 0.88, 17.8734, 18.1704);
+    }
   }
 }
