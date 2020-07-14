@@ -1,0 +1,75 @@
+.SkySection {
+  background: linear-gradient(#008ea5, #7ee7ff);
+  min-height: 80vh;
+  position: relative;
+
+  .background,
+  .foreground {
+    display: flex;
+  }
+
+  .background {
+    position: absolute;
+    opacity: 0.15;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    top: 0;
+
+    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+
+    .row {
+      height: 20vh;
+      display: flex;
+      flex-direction: row;
+
+      width: 100%;
+    }
+
+    .Cloud {
+      &:nth-child(2n) {
+        padding-top: 30vh;
+      }
+      &:nth-child(4n) {
+        padding-top: 45vh;
+      }
+    }
+  }
+
+  .foreground {
+    position: relative;
+    top: 10vh;
+    height: 80vh;
+    align-items: start;
+
+    .Cloud {
+      &:nth-child(2n) {
+        padding-top: 10vh;
+      }
+      &:nth-child(4n) {
+        padding-top: 15vh;
+      }
+    }
+  }
+
+  .Cloud {
+    flex: 1;
+  }
+
+  .Balloons {
+    width: 50vmin;
+    position: absolute;
+    left: 30vmin;
+    top: 10vmin;
+  }
+
+  .Parachutes {
+    position: absolute;
+    right: 30vmin;
+    bottom: 5vmin;
+
+    height: 30vmin;
+  }
+}
