@@ -1,0 +1,47 @@
+.LandSection {
+  background: linear-gradient(#7ee7ff 70%, #008fa4 70%);
+  position: relative;
+  width: 100vw;
+
+  overflow: hidden;
+
+  .bottom {
+    position: relative;
+    top: -10vmin;
+    height: 100vh;
+
+    .Wall {
+      z-index: 1;
+      height: 100vmax;
+      width: 100%;
+    }
+
+    .Trees {
+      position: absolute;
+      bottom: -10vmin;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .Waterfall {
+      position: absolute;
+      top: 2vmin;
+      left: 0;
+      height: 100vmax;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .Grass {
+      position: absolute;
+      bottom: -10vmin;
+
+      left: 0;
+      width: 130%;
+      height: auto;
+      z-index: 3;
+    }
+  }
+}
