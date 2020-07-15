@@ -1,26 +1,32 @@
 .SpaceSection {
   position: relative;
-  overflow-x: hidden;
   width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(#000120 45%, #024254);
+  // background: linear-gradient(#000120 45%, #024254);
 
   [data-name="neptune"] {
-    top: -20vmin;
-    left: -20vmin;
+    bottom: -35vmin;
+    left: -25vmin;
+    opacity: 0.2;
 
-    @media screen and(min-width: 720px) {
-      left: -5vmin;
+    svg {
+      height: 100vmin;
+      width: 100vmin;
+    }
+
+    @media screen and(min-width: 920px) {
+      left: -15vmin;
     }
   }
 
   [data-name="mars"] {
-    right: -25vmin;
-    bottom: -2vmin;
+    right: -10vmin;
+    bottom: 15vmin;
     left: auto;
+    opacity: 0.8;
     transform: rotate(-45deg);
 
-    @media screen and(min-width: 720px) {
+    @media screen and(min-width: 920px) {
       right: 2vmin;
       bottom: 2vmin;
     }
@@ -28,40 +34,40 @@
 
   [data-name="uranus"] {
     right: -12vw;
-    top: 30vh;
+    top: 20vh;
     left: auto;
-    // opacity: 0.5;
 
-    @media screen and(min-width: 720px) {
+    @media screen and(min-width: 920px) {
       top: -10vh;
       right: -6vw;
     }
   }
 
   [data-name="jupiter"] {
-    left: 12vw;
-    bottom: 52vh;
+    left: 10vw;
+    top: 20vh;
+    opacity: 0.5;
 
     svg {
-      transform: rotate(40deg);
+      transform: rotate(-40deg);
     }
 
-    @media screen and(min-width: 720px) {
+    @media screen and(min-width: 920px) {
       left: 15vw;
-      bottom: 10vh;
+      top: 10vh;
     }
   }
 
   [data-name="mercury"] {
-    left: 10vw;
-    bottom: -2vh;
+    left: -5vw;
+    top: -2vh;
 
     svg {
-      transform: rotate(45deg);
+      transform: rotate(-45deg);
       transform-origin: 50% 50%;
     }
 
-    @media screen and(min-width: 720px) {
+    @media screen and(min-width: 920px) {
       left: -5vw;
       bottom: -15vh;
     }
@@ -69,23 +75,23 @@
 
   [data-name="saturn"] {
     left: 60vw;
-    top: 3vh;
+    top: 1vh;
     transform: rotate(45deg);
 
-    // @media screen and(min-width: 720px) {
+    // @media screen and(min-width: 920px) {
     //   top: 2vh;
     //   left: 60vw;
     // }
   }
 
   [data-name="sun"] {
-    bottom: 25vh;
+    bottom: 35vh;
     margin: 0 auto;
     right: 0;
     left: 0;
-    transform: rotate(-45deg);
+    // transform: rotate(90deg);
 
-    @media screen and(min-width: 720px) {
+    @media screen and(min-width: 920px) {
       bottom: 25vh;
     }
   }

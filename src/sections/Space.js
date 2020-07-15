@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useCallback } from "react";
 import "./Space.scss";
-import { gsap, TimelineMax, Power1, Power3 } from "gsap";
+import React, { useEffect, useCallback } from "react";
+import { gsap, TimelineMax, Power1 } from "gsap";
 
 import { Sun, Planet, Stars } from "components";
 
 export const SpaceSection = () => {
-  const mars = useRef();
   const tl = new TimelineMax();
 
   const pulsateAura = useCallback((planet) => {
@@ -116,7 +115,7 @@ export const SpaceSection = () => {
     <div className="SpaceSection">
       <Stars />
       <Planet size="70vmin" color="green" name="neptune" />
-      <Planet ref={mars} size="50vmin" color="orange" name="mars" />
+      <Planet size="50vmin" color="orange" name="mars" />
       <Planet size="40vmin" color="cyan" name="uranus" />
       <Planet size="35vmin" color="pink" name="jupiter" />
       <Planet size="38vmin" color="darkPink" name="mercury" />
