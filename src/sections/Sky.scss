@@ -1,5 +1,4 @@
 .SkySection {
-  background: linear-gradient(#008ea5, #7ee7ff);
   min-height: 80vh;
   position: relative;
 
@@ -61,14 +60,14 @@
   .Balloons {
     width: 50vmin;
     position: absolute;
-    left: 30vmin;
-    top: 10vmin;
+    left: 15vmin;
+    top: 25vmin;
   }
 
   .Parachutes {
     position: absolute;
-    right: 30vmin;
-    bottom: 5vmin;
+    right: 15vmin;
+    bottom: 15vmin;
 
     height: 30vmin;
   }
