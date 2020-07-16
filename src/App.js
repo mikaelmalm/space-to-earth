@@ -1,6 +1,5 @@
 import React from "react";
-import "./App.scss";
-
+import styled from "@emotion/styled";
 import {
   SpaceSection,
   SkySection,
@@ -8,15 +7,22 @@ import {
   LandSection,
 } from "sections";
 
-function App() {
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#000120 10%, #024254, #008ea5, #7ee7ff 47%);
+  overflow: hidden;
+`;
+
+const App = () => {
   return (
-    <div className="App">
+    <StyledApp>
       <SpaceSection />
       <AtmosphereSection />
       <SkySection />
       <LandSection />
-    </div>
+    </StyledApp>
   );
-}
+};
 
 export default App;
