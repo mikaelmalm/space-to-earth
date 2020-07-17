@@ -1,5 +1,5 @@
-import React, { useEffect, useCallback } from "react";
-import { gsap, TimelineMax, Power1 } from "gsap";
+import React, { useEffect, useCallback, useRef } from "react";
+import { gsap, TimelineMax, Power1, Elastic } from "gsap";
 import styled from "@emotion/styled";
 
 import { Sun, Planet, Stars } from "components";
@@ -109,7 +109,21 @@ const StyledSpaceSection = styled.div`
 `;
 
 export const SpaceSection = () => {
+  const section = useRef();
+
   const tl = new TimelineMax();
+
+  const pulsateStars = useCallback((star) => {
+    gsap.to(star, 3, {
+      autoAlpha: 0.2,
+      scale: 0.5,
+      transformOrigin: "50%",
+      repeat: -1,
+      yoyo: true,
+      ease: Power1.inOut,
+      stagger: 1,
+    });
+  }, []);
 
   const pulsateAura = useCallback((planet) => {
     gsap.to(`[data-name="${planet}"] .glow`, 5, {
@@ -122,49 +136,63 @@ export const SpaceSection = () => {
     });
   }, []);
 
+  const moveRing = useCallback((planet) => {
+    gsap.to(`[data-name="${planet}"] .ring-inner`, 15, {
+      rotate: "-15deg",
+      repeat: -1,
+      yoyo: true,
+      transformOrigin: "50%",
+      ease: Elastic.inOut,
+    });
+    gsap.to(`[data-name="${planet}"] .ring-outer`, 15, {
+      rotate: "-15deg",
+      repeat: -1,
+      yoyo: true,
+      transformOrigin: "50%",
+      ease: Elastic.inOut,
+    });
+  }, []);
+
   useEffect(() => {
-    tl.staggerFrom(
-      '[data-name="stars"] path',
-      1,
-      {
-        autoAlpha: 0,
-        y: -50,
-      },
-      0.05
-    )
+    tl.from('[data-name="stars"] path', 1, {
+      autoAlpha: 0,
+      y: -50,
+      stagger: 0.05,
+      onComplete: () => pulsateStars('[data-name="stars"] path'),
+    })
 
       .from(
         '[data-name="neptune"]',
         1,
         {
-          y: -50,
-          opacity: 0,
+          x: -50,
+          autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("neptune"),
         },
-        "-=0.5"
+        1.2
       )
       .from(
         '[data-name="uranus"]',
         1,
         {
           y: -80,
-          opacity: 0,
+          autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("uranus"),
         },
-        "-=1"
+        1
       )
       .from(
         '[data-name="saturn"]',
         1,
         {
           y: 50,
-          opacity: 0,
+          autoAlpha: 0,
           ease: Power1.easeOut,
-          onComplete: () => pulsateAura("saturn"),
+          onComplete: () => moveRing("saturn"),
         },
-        "-=1"
+        1
       )
 
       .from(
@@ -172,51 +200,51 @@ export const SpaceSection = () => {
         1,
         {
           x: 50,
-          opacity: 0,
+          autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("mars"),
         },
-        "-=0.5"
+        1.2
       )
       .from(
         '[data-name="mercury"]',
         1,
         {
           x: -100,
-          opacity: 0,
+          autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("mercury"),
         },
-        "-=1.2"
+        1
       )
       .from(
         '[data-name="jupiter"]',
         1,
         {
-          y: -50,
-          opacity: 0,
+          y: 50,
+          autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("jupiter"),
         },
-        "-=1"
+        1
       )
       .from(
         '[data-name="sun"]',
         1,
         {
-          y: 75,
-          opacity: 0,
+          y: -50,
+          autoAlpha: 0,
           ease: Power1.easeOut,
         },
-        "-=0.5"
+        1.2
       );
 
-    tl.pause();
-    tl.play(0);
-  }, [tl]);
+    // tl.pause();
+    // tl.play(0);
+  }, [tl, pulsateStars, pulsateAura, moveRing]);
 
   return (
-    <StyledSpaceSection>
+    <StyledSpaceSection ref={section}>
       <Stars />
       <Planet size="70vmin" color="green" name="neptune" />
       <Planet size="50vmin" color="orange" name="mars" />
