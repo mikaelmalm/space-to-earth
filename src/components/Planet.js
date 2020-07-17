@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-import { shadeHexColor } from "helpers";
-
 const colors = {
   cyan: {
     light: "#20FFE0",
@@ -97,24 +95,26 @@ const PlanetRing = ({ size, name }) => {
         />
       </g>
       <g>
-        <path
-          opacity=".9"
-          fill="none"
-          stroke="#EDCF88"
-          strokeWidth="6.4481"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeMiterlimit="10"
-          d="M14.347 185.923c-2.108-7.624 57.074-30.65 132.188-51.43 75.114-20.78 137.715-31.445 139.824-23.821"
-        />
-        <path
-          opacity=".9"
-          fill="none"
-          stroke="#E1AA56"
-          strokeWidth="5.0152"
-          strokeMiterlimit="10"
-          d="M16.486 184.194c-1.656-5.988 56.684-27.353 130.306-47.721 73.624-20.367 134.649-32.022 136.305-26.035"
-        />
+        <g className="ring-inner">
+          <path
+            opacity=".9"
+            fill="none"
+            stroke="#EDCF88"
+            strokeWidth="6.4481"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            d="M14.347 185.923c-2.108-7.624 57.074-30.65 132.188-51.43 75.114-20.78 137.715-31.445 139.824-23.821"
+          />
+          <path
+            opacity=".9"
+            fill="none"
+            stroke="#E1AA56"
+            strokeWidth="5.0152"
+            strokeMiterlimit="10"
+            d="M16.486 184.194c-1.656-5.988 56.684-27.353 130.306-47.721 73.624-20.367 134.649-32.022 136.305-26.035"
+          />
+        </g>
 
         <circle cx="153.65" cy="148.1" r="68.4" fill="#EC127D" />
         <path
@@ -137,24 +137,26 @@ const PlanetRing = ({ size, name }) => {
           fill="#FA2B7D"
           d="M163.304 169.904c-1.211 1.21-3.174 1.21-4.386 0-1.211-1.213-1.211-3.175 0-4.388l5.29-5.289c1.211-1.211 3.175-1.211 4.387 0 1.21 1.211 1.21 3.175-.001 4.386l-5.29 5.291z"
         />
-        <path
-          opacity=".9"
-          fill="none"
-          stroke="#EDCF88"
-          strokeWidth="6.4481"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeMiterlimit="10"
-          d="M286.358 110.672c2.11 7.623-57.073 30.648-132.187 51.428-75.112 20.78-137.715 31.446-139.824 23.823"
-        />
-        <path
-          opacity=".9"
-          fill="none"
-          stroke="#E1AA56"
-          strokeWidth="5.0152"
-          strokeMiterlimit="10"
-          d="M283.097 110.438c1.656 5.989-56.684 27.355-130.306 47.723-73.623 20.367-134.648 32.021-136.305 26.033"
-        />
+        <g className="ring-outer">
+          <path
+            opacity=".9"
+            fill="none"
+            stroke="#EDCF88"
+            strokeWidth="6.4481"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            d="M286.358 110.672c2.11 7.623-57.073 30.648-132.187 51.428-75.112 20.78-137.715 31.446-139.824 23.823"
+          />
+          <path
+            opacity=".9"
+            fill="none"
+            stroke="#E1AA56"
+            strokeWidth="5.0152"
+            strokeMiterlimit="10"
+            d="M283.097 110.438c1.656 5.989-56.684 27.355-130.306 47.723-73.623 20.367-134.648 32.021-136.305 26.033"
+          />
+        </g>
       </g>
     </svg>
   );
