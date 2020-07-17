@@ -12,10 +12,10 @@ export const Tree = () => (
       <path
         fill="none"
         stroke="#6C3127"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-miterlimit="10"
-        stroke-width="9.9232"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="9.9232"
         d="M144.235 266.944h-21.191c-8.298 0-15.087-6.789-15.087-15.088v-47.518"
       />
       <path
@@ -39,19 +39,19 @@ export const Tree = () => (
         <path
           fill="none"
           stroke="#4E2D22"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="10.8535"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="10.8535"
           d="M173.541 180.062h-29.198c-11.432 0-20.786-9.354-20.786-20.786V93.802"
         />
         <path
           fill="none"
           stroke="#4E2D22"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="7.1323"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="7.1323"
           d="M120.528 155.954h-19.717c-10.843 0-19.715-10.104-19.715-22.454v-22.454"
         />
         <path

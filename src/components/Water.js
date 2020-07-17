@@ -62,7 +62,7 @@ const Foam = () => (
     height="180"
     viewBox="0 0 461 35"
     fill="none"
-    preserveAspectRatio="xMidyMid"
+    preserveAspectRatio="xMidYMid"
     xmlns="http://www.w3.org/2000/svg"
     className="Foam"
   >

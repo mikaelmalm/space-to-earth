@@ -13,28 +13,28 @@ export const Parachutes = () => {
         <path
           fill="#132541"
           stroke="#132541"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="0.4398"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="0.4398"
           d="M115.992 235.061c1.04-1.033 1.59-2.532 1.352-4.092-.395-2.599-2.82-4.384-5.419-3.989-2.597.396-4.384 2.822-3.988 5.419.237 1.562 1.208 2.828 2.508 3.506-1.054.806-1.649 2.146-1.435 3.551l.753 4.952c.312 2.051 2.228 3.46 4.278 3.147l1.981-.301c2.051-.313 3.46-2.227 3.148-4.278l-.752-4.951c-.214-1.405-1.179-2.508-2.426-2.964z"
         />
         <path
           fill="none"
           stroke="#132541"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="1.3194"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="1.3194"
           d="M72.896 164.182l38.517 78.083-75.83-47.663M130.685 155.392l-13.558 86.003 58.228-68.055"
         />
         <path
           fill="none"
           stroke="#132541"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="1.3194"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="1.3194"
           d="M64.391 172.761l47.91 70.318-62.152-58.124M141.907 160.969l-25.386 81.469 39.637-72.305"
         />
         <path
@@ -59,28 +59,28 @@ export const Parachutes = () => {
         <path
           fill="#132541"
           stroke="#132541"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="0.4398"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="0.4398"
           d="M230.725 153.361c.858-.473 1.488-1.333 1.624-2.379.226-1.742-1.003-3.336-2.746-3.562-1.741-.225-3.336 1.004-3.562 2.746-.136 1.047.255 2.04.966 2.715-.827.322-1.457 1.074-1.578 2.016l-.43 3.32c-.177 1.375.793 2.634 2.169 2.812l1.327.172c1.375.179 2.634-.792 2.813-2.167l.429-3.32c.121-.943-.296-1.829-1.012-2.353z"
         />
         <path
           fill="none"
           stroke="#132541"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="1.3194"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="1.3194"
           d="M216.115 99.878l10.339 57.267-39.922-44.609M254.861 104.892l-24.576 52.749 49.963-32.978"
         />
         <path
           fill="none"
           stroke="#132541"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="1.3194"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="1.3194"
           d="M209.068 103.82l17.807 54.012-29.204-48.806M261.041 110.545l-31.337 47.652 38.803-39.136"
         />
         <path
