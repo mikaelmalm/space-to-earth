@@ -111,8 +111,6 @@ const StyledSpaceSection = styled.div`
 export const SpaceSection = () => {
   const section = useRef();
 
-  const tl = new TimelineMax();
-
   const pulsateStars = useCallback((star) => {
     gsap.to(star, 3, {
       autoAlpha: 0.2,
@@ -154,6 +152,8 @@ export const SpaceSection = () => {
   }, []);
 
   useEffect(() => {
+    const tl = new TimelineMax();
+
     tl.from('[data-name="stars"] path', 1, {
       autoAlpha: 0,
       y: -50,
@@ -238,10 +238,7 @@ export const SpaceSection = () => {
         },
         1.2
       );
-
-    // tl.pause();
-    // tl.play(0);
-  }, [tl, pulsateStars, pulsateAura, moveRing]);
+  }, [pulsateStars, pulsateAura, moveRing]);
 
   return (
     <StyledSpaceSection ref={section}>
