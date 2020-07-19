@@ -28,7 +28,7 @@ const StyledAtmosphereSection = styled.div`
     width: 35vmin;
     position: absolute;
     left: 20vw;
-    bottom: -25vh;
+    top: 38vh;
     opacity: 0;
 
     .start {
