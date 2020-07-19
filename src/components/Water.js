@@ -60,7 +60,7 @@ const Foam = () => (
   <svg
     width="461"
     height="180"
-    viewBox="0 0 461 35"
+    viewBox="0 0 500 35"
     fill="none"
     preserveAspectRatio="xMidYMid"
     xmlns="http://www.w3.org/2000/svg"
@@ -86,10 +86,38 @@ const Foam = () => (
     <ellipse cx="395" cy="103.275" rx="29" ry="29.6532" fill="#fff" />
     <ellipse cx="370" cy="113.5" rx="29" ry="29.6532" fill="#fff" />
     <ellipse cx="433" cy="115.545" rx="19" ry="19.4279" fill="#fff" />
-    <ellipse cx="77" cy="50.1037" rx="19" ry="19.4279" fill="#fff" />
-    <ellipse cx="14" cy="89.9821" rx="14" ry="14.3153" fill="#fff" />
-    <ellipse cx="437" cy="10.2252" rx="10" ry="10.2252" fill="#fff" />
-    <ellipse cx="448" cy="73.6216" rx="13" ry="13.2928" fill="#fff" />
+    <ellipse
+      cx="77"
+      cy="50.1037"
+      rx="19"
+      ry="19.4279"
+      fill="#fff"
+      className="bubble"
+    />
+    <ellipse
+      cx="14"
+      cy="89.9821"
+      rx="14"
+      ry="14.3153"
+      fill="#fff"
+      className="bubble"
+    />
+    <ellipse
+      cx="437"
+      cy="10.2252"
+      rx="10"
+      ry="10.2252"
+      fill="#fff"
+      className="bubble"
+    />
+    <ellipse
+      cx="448"
+      cy="73.6216"
+      rx="13"
+      ry="13.2928"
+      fill="#fff"
+      className="bubble"
+    />
   </svg>
 );
 
