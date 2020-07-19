@@ -154,89 +154,88 @@ export const SpaceSection = () => {
   useEffect(() => {
     const tl = new TimelineMax();
 
-    tl.from('[data-name="stars"] path', 1, {
+    tl.from('[data-name="stars"] path', 0.6, {
       autoAlpha: 0,
       y: -50,
       stagger: 0.05,
-      onComplete: () => pulsateStars('[data-name="stars"] path'),
+      // onComplete: () => pulsateStars('[data-name="stars"] path'),
     })
-
       .from(
         '[data-name="neptune"]',
-        1,
+        0.85,
         {
           x: -50,
           autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("neptune"),
         },
-        1.2
+        0.7
       )
       .from(
         '[data-name="uranus"]',
-        1,
+        0.85,
         {
           y: -80,
           autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("uranus"),
         },
-        1
+        0.7
       )
       .from(
         '[data-name="saturn"]',
-        1,
+        0.85,
         {
           y: 50,
           autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => moveRing("saturn"),
         },
-        1
+        0.7
       )
 
       .from(
         '[data-name="mars"]',
-        1,
+        0.85,
         {
           x: 50,
           autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("mars"),
         },
-        1.2
+        0.7
       )
       .from(
         '[data-name="mercury"]',
-        1,
+        0.85,
         {
           x: -100,
           autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("mercury"),
         },
-        1
+        0.7
       )
       .from(
         '[data-name="jupiter"]',
-        1,
+        0.85,
         {
           y: 50,
           autoAlpha: 0,
           ease: Power1.easeOut,
           onComplete: () => pulsateAura("jupiter"),
         },
-        1
+        0.7
       )
       .from(
         '[data-name="sun"]',
-        1,
+        0.85,
         {
           y: -50,
           autoAlpha: 0,
           ease: Power1.easeOut,
         },
-        1.2
+        0.7
       );
   }, [pulsateStars, pulsateAura, moveRing]);
 

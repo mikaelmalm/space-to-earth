@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { gsap, TimelineMax, Power1 } from "gsap";
+import React, { useEffect, useRef, useCallback } from "react";
+import { gsap, TimelineMax, Power1, Elastic } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styled from "@emotion/styled";
 import {
@@ -148,66 +148,9 @@ const Sky = () => (
 export const SkySection = () => {
   const section = useRef();
 
-  // clouds
-  useEffect(() => {
-    const tl = new TimelineMax({
-      scrollTrigger: {
-        id: "SkySection",
-        trigger: section.current,
-        start: "top center",
-        toggleActions: "play none none",
-      },
-    });
-
-    tl.to(".background .Cloud", {
-      x: -25,
-      autoAlpha: 1,
-      stagger: 0.01,
-    })
-      .to(
-        ".foreground .Cloud",
-
-        {
-          x: 25,
-          autoAlpha: 1,
-          stagger: 0.01,
-        }
-      )
-      .to(".Cloud", {
-        x: 1,
-        yoyo: true,
-        repeat: -1,
-        duration: 5,
-      });
-  }, []);
-
-  // humans
-  useEffect(() => {
-    const tl = new TimelineMax({
-      scrollTrigger: {
-        id: "HumanSection",
-        trigger: section.current,
-        start: "top center",
-        toggleActions: "play none none",
-      },
-    });
-
-    tl.to(".Balloons", {
-      x: 50,
-      autoAlpha: 1,
-      duration: 1,
-    })
-      .to(
-        ".Parachutes",
-        {
-          x: -50,
-          autoAlpha: 1,
-          duration: 1,
-        },
-        "-=0.5"
-      )
-      .to(
-        ".Balloons .secondary",
+  const moveHumans = useCallback(() => {
+    gsap.to(".Balloons .secondary", {
+      keyframes: [
         {
           y: 8,
           x: 5,
@@ -216,48 +159,91 @@ export const SkySection = () => {
           ease: Power1.easeInOut,
           duration: 4,
         },
-
-        "-=4"
-      )
-      .to(
-        ".Balloons .main",
-        {
-          y: -8,
-          yoyo: true,
-          repeat: -1,
-          ease: Power1.easeInOut,
-          duration: 4,
-        },
-        "-=4"
-      )
-      .to(
-        ".Parachutes .secondary",
-        {
-          y: 10,
-          rotate: "10deg",
-          transformOrigin: "center",
-          yoyo: true,
-          repeat: -1,
-          ease: Power1.easeInOut,
-          duration: 8,
-        },
-
-        "-=4"
-      )
-      .to(
-        ".Parachutes .main",
-        {
-          y: -20,
-          x: 5,
-          rotate: "-7deg",
-          yoyo: true,
-          repeat: -1,
-          ease: Power1.easeInOut,
-          duration: 8,
-        },
-        "-=6"
-      );
+      ],
+    });
+    gsap.to(".Balloons .main", {
+      y: -8,
+      yoyo: true,
+      repeat: -1,
+      ease: Power1.easeInOut,
+      duration: 4,
+    });
+    gsap.to(".Parachutes .secondary", {
+      y: 10,
+      rotate: "10deg",
+      transformOrigin: "center",
+      yoyo: true,
+      repeat: -1,
+      ease: Power1.easeInOut,
+      duration: 8,
+    });
+    gsap.to(".Parachutes .main", {
+      y: -20,
+      x: 5,
+      rotate: "-7deg",
+      yoyo: true,
+      repeat: -1,
+      ease: Power1.easeInOut,
+      duration: 8,
+    });
   }, []);
+
+  // clouds
+  useEffect(() => {
+    const tl = new TimelineMax({
+      scrollTrigger: {
+        id: "SkySection",
+        trigger: section.current,
+        start: "top center",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    tl.to(".background .Cloud", {
+      x: 15,
+      autoAlpha: 1,
+      stagger: 0.01,
+      duration: 0.8,
+      ease: Elastic.easeOut,
+    }).to(
+      ".foreground .Cloud",
+      {
+        x: -15,
+        autoAlpha: 1,
+        stagger: 0.05,
+        duration: 1.5,
+        ease: Elastic.easeOut,
+      },
+      0.4
+    );
+  }, []);
+
+  // humans
+  useEffect(() => {
+    const tl = new TimelineMax({
+      scrollTrigger: {
+        id: "HumanSection",
+        trigger: section.current,
+        start: "top center-=350",
+        toggleActions: "play none none reverse",
+      },
+      onStart: moveHumans,
+    });
+
+    tl.to(".Balloons", {
+      x: 50,
+      autoAlpha: 1,
+      duration: 0.5,
+    }).to(
+      ".Parachutes",
+      {
+        x: -50,
+        autoAlpha: 1,
+        duration: 1,
+      },
+      "-=0.5"
+    );
+  }, [moveHumans]);
 
   return (
     <StyledSkySection ref={section}>

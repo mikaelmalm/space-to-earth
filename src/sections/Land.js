@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { gsap, TimelineMax, Power1 } from "gsap";
 import styled from "@emotion/styled";
 import { Mountains, Wall, Trees, Grass, Waterfall, Water } from "components";
@@ -102,7 +102,7 @@ export const LandSection = () => {
   const bottomSection = useRef();
 
   // water
-  useEffect(() => {
+  const moveBubbles = useCallback(() => {
     gsap.to(".bubble", {
       x: 7,
       y: -10,
@@ -121,7 +121,7 @@ export const LandSection = () => {
         id: "MountainSection",
         trigger: mountainSection.current,
         start: "top center",
-        toggleActions: "play none none",
+        toggleActions: "play none none reverse",
       },
     });
 
@@ -134,12 +134,13 @@ export const LandSection = () => {
 
   // bottom
   useEffect(() => {
+    moveBubbles();
     const tl = new TimelineMax({
       scrollTrigger: {
         id: "BottomSection",
         trigger: bottomSection.current,
         start: "top center-=100",
-        toggleActions: "play none none",
+        toggleActions: "play none none reverse",
       },
     });
 
@@ -148,7 +149,8 @@ export const LandSection = () => {
       autoAlpha: 0,
       ease: Power1.easeInOut,
     });
-  }, []);
+  }, [moveBubbles]);
+
   return (
     <StyledLandSection>
       <Mountains ref={mountainSection} />
