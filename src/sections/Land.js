@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { gsap, TimelineMax, Power1 } from "gsap";
 import styled from "@emotion/styled";
 import { Mountains, Wall, Trees, Grass, Waterfall, Water } from "components";
 
@@ -97,11 +98,62 @@ const StyledLandSection = styled.div`
 `;
 
 export const LandSection = () => {
+  const mountainSection = useRef();
+  const bottomSection = useRef();
+
+  // water
+  useEffect(() => {
+    gsap.to(".bubble", {
+      x: 7,
+      y: -10,
+      yoyo: true,
+      stagger: 0.2,
+      duration: 10,
+      ease: Power1.easeInOut,
+      repeat: -1,
+    });
+  }, []);
+
+  // mountains
+  useEffect(() => {
+    const tl = new TimelineMax({
+      scrollTrigger: {
+        id: "MountainSection",
+        trigger: mountainSection.current,
+        start: "top center",
+        toggleActions: "play none none",
+      },
+    });
+
+    tl.from([".Mountains .leaves", ".Mountains .bush", ".Mountains .branch"], {
+      y: 15,
+      autoAlpha: 0,
+      ease: Power1.easeInOut,
+    });
+  }, []);
+
+  // bottom
+  useEffect(() => {
+    const tl = new TimelineMax({
+      scrollTrigger: {
+        id: "BottomSection",
+        trigger: bottomSection.current,
+        start: "top center-=100",
+        toggleActions: "play none none",
+      },
+    });
+
+    tl.from([".Tree .leaves"], {
+      x: -5,
+      autoAlpha: 0,
+      ease: Power1.easeInOut,
+    });
+  }, []);
   return (
     <StyledLandSection>
-      <Mountains />
+      <Mountains ref={mountainSection} />
 
-      <div className="bottom">
+      <div className="bottom" ref={bottomSection}>
         <Wall />
         <Waterfall />
         <Trees />
